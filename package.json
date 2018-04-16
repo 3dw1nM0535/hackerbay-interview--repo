@@ -1,0 +1,44 @@
+{
+  "name": "hackerbay-round1-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/index.js",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.14"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.12.0"
+  },
+  "scripts": {
+    "start": "nodemon --watch api --exec babel-node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3dw1nM0535/hackerbay-interview--repo.git"
+  },
+  "author": "Edwin Moses",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3dw1nM0535/hackerbay-interview--repo/issues"
+  },
+  "homepage": "https://github.com/3dw1nM0535/hackerbay-interview--repo#readme"
+}
