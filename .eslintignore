@@ -1,0 +1,3 @@
+# Avoid ESLint on these files
+
+**/node_modules/**
