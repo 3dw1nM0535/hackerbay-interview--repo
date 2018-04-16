@@ -22,15 +22,7 @@ const options = {
 };
 
 // Connect to Database
-mongoose.connect(
-  configs.MONGO_URI,
-  options,
-  (error) => {
-    if (error) {
-      console.error.bind(console, "Connection error:");
-    }
-  },
-);
+mongoose.connect(configs.MONGO_URI, options);
 
 // Define PORT Number
 const PORT = configs.PORT;
