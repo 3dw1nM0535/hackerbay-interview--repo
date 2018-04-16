@@ -6,12 +6,20 @@ import morgan from "morgan";
 // Import configurations
 import configs from "./config/configs";
 
+// Import routes
+import signup from "./api/controllers/routes/signup";
+import login from "./api/controllers/routes/login";
+
+// Set environment to development
+process.env.NODE_ENV = "dev";
+
 // Init the express module
 const app = express();
 
 const options = {
-  keepAlive: 1,
-  connectTimeoutMS: 3000,
+  autoReconnect: true,
+  connectTimeoutMS: 30000,
+  reconnectTries: 30,
 };
 
 // Connect to Database
@@ -28,16 +36,23 @@ mongoose.connect(
 // Define PORT Number
 const PORT = configs.PORT;
 
-// Logging middleware
-app.use(morgan("combined"));
+if (process.env.NODE_ENV !== "test") {
+  // Logging middleware
+  app.use(morgan("combined"));
+}
 
 // Parse application/json middleware
 app.use(bodyParser.json());
 
+
 // Any route handler
-app.get("*", (req, res) => {
-  res.status(200).json({});
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome" });
 });
+
+// Mount routes
+app.use("/api/signup", signup);
+app.use("/api/authenticate", login);
 
 // Listen for request
 app.listen(PORT, () => console.log("API active!"));
