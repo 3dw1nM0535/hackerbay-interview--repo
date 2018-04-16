@@ -53,4 +53,4 @@ app.get("/", (req, res) => {
 app.use("/api/authenticate", login);
 
 // Listen for request
-app.listen(PORT, () => console.log("API active!"));
+app.listen(PORT);
