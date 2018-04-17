@@ -48,4 +48,16 @@ describe("/POST login", () => {
         done();
       });
   });
+
+  it("Should return error if user not found", (done) => {
+    chai.request(server)
+      .post("/api/authenticate")
+      .send({ username: "mikeBlake", password: "1234" })
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.body.should.be.a("object");
+        res.body.should.have.property("message").eql("User not found. Please signup first");
+      });
+    done();
+  });
 });
