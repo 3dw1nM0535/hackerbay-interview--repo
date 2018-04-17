@@ -4,9 +4,9 @@ import User from "../../../api/models/user";
 import configs from "../../../config/configs";
 
 export default (req, res, next) => {
-  const header = req.headers.authoriation;
+  const header = req.headers.authorization;
   let token;
-  if (header) token = header.split(' ')[0];
+  if (header) token = header.split(' ')[1];
 
   if (token) {
     jwt.verify(token, configs.SECRET_KEY, (err, decoded) => {
