@@ -4,7 +4,6 @@ import cloudinary from "cloudinary";
 import multer from "multer";
 import fs from "fs";
 
-// Apply isAuthenticated middleware
 import isAuthenticated from "../middlewares/authenticate";
 
 import configs from "../../../config/configs";
