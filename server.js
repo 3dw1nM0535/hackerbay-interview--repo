@@ -30,7 +30,7 @@ mongoose.connect(configs.MONGO_URI, options);
 // Define PORT Number
 const PORT = configs.PORT;
 
-if (process.env.NODE_ENV !== "test") {
+if (configs.NODE_ENV !== "test") {
   // Logging middleware
   app.use(morgan("combined"));
 }
