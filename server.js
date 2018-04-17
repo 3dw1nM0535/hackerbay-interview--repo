@@ -51,4 +51,6 @@ app.use("/api/patch", patch);
 app.use("/api/thumbnails", upload);
 
 // Listen for request
-app.listen(PORT);
+const server = app.listen(PORT);
+
+export default server;

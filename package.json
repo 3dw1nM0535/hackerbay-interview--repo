@@ -40,7 +40,7 @@
   },
   "scripts": {
     "start": "nodemon --exec babel-node server.js",
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000 --compilers --no-deprecation js:babel-core/register test"
   },
   "repository": {
     "type": "git",
