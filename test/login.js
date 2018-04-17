@@ -36,4 +36,16 @@ describe("/POST login", () => {
         done();
       });
   });
+
+  it("Should return error for wrong passwod", (done) => {
+    chai.request(server)
+      .post("/api/authenticate")
+      .send({ username: "edwinMoses", password: "" })
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.body.should.be.a("object");
+        res.body.should.have.property("message").eql("Wrong password");
+        done();
+      });
+  });
 });
