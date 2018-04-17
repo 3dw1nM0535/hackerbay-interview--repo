@@ -8,12 +8,7 @@ const Router = express.Router();
 Router.post("/", (req, res) => {
   User.findOne({ username: req.body.username }).then((user) => {
     if (!user) {
-      const newUser = new User({
-        username: req.body.username,
-      });
-      newUser.setPassword(req.body.password);
-      newUser.save().then(result => res.status(200).json({ token: result.generateToken() }))
-        .catch(err => res.status(400).json({ errors: { global: err } }));
+      res.status(404).json({ message: "User not found. Please signup first" });
     } else if (user) {
       if (!user.isValidPassword(req.body.password)) {
         res.status(401).json({ message: "Wrong password" });
