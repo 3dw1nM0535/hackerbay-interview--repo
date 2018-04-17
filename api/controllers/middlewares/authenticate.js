@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
-import User from "../../api/models/user";
-import configs from "../../config/configs";
+import User from "../../../api/models/user";
+import configs from "../../../config/configs";
 
 export default (req, res, next) => {
   const header = req.headers.authoriation;
