@@ -9,6 +9,7 @@ import configs from "./config/configs";
 // Import routes
 import signup from "./api/controllers/routes/signup";
 import login from "./api/controllers/routes/login";
+import patch from "./api/controllers/routes/patch";
 
 // Set environment to development
 process.env.NODE_ENV = "dev";
@@ -45,6 +46,7 @@ app.get("/", (req, res) => {
 // Mount routes
 app.use("/api/signup", signup);
 app.use("/api/authenticate", login);
+app.use("/api/patch", patch);
 
 // Listen for request
 app.listen(PORT);
