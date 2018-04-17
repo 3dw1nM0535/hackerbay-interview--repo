@@ -41,4 +41,17 @@ describe("Patch JSON object", () => {
       });
     done();
   });
+
+  it("Should return empty object on empty request", (done) => {
+    chai.request(server)
+      .post("/api/patch")
+      .set("Authorization", "Bearer " + token)
+      .send({ myDoc: {}, patchOp: [] })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a("object");
+        res.body.should.have.property("doc");
+        done();
+      });
+  });
 });
