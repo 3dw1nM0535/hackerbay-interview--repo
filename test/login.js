@@ -1,3 +1,5 @@
+process.env.NODE_ENV = "test";
+
 // Login test
 import chai from "chai";
 import chaiHttp from "chai-http";
@@ -7,8 +9,6 @@ import server from "../server";
 import User from "../api/models/user";
 
 const should = chai.should();
-
-process.env.NODE_ENV = "test";
 
 chai.use(chaiHttp);
 // Login test
