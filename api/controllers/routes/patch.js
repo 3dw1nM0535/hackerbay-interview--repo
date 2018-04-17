@@ -10,7 +10,7 @@ Router.use(isAuthenticated);
 
 Router.post("/", (req, res) => {
   const patchedDoc = patchDoc.apply_patch(req.body.myDoc, req.body.patchOp);
-  res.status(200).json(patchedDoc);
+  res.status(200).json({ doc: patchedDoc });
 });
 
 export default Router;
