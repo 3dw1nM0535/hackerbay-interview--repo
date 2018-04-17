@@ -7,6 +7,7 @@ import morgan from "morgan";
 import configs from "./config/configs";
 
 // Import routes
+import signup from "./api/controllers/routes/signup";
 import login from "./api/controllers/routes/login";
 
 // Set environment to development
@@ -42,6 +43,7 @@ app.get("/", (req, res) => {
 });
 
 // Mount routes
+app.use("/api/signup", signup);
 app.use("/api/authenticate", login);
 
 // Listen for request
