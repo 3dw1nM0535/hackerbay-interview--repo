@@ -40,7 +40,7 @@ describe("/POST login", () => {
   it("Should return error for wrong passwod", (done) => {
     chai.request(server)
       .post("/api/authenticate")
-      .send({ username: "edwinMoses", password: "" })
+      .send({ username: "edwinMoses", password: "4646" })
       .end((err, res) => {
         res.should.have.status(401);
         res.body.should.be.a("object");
@@ -59,5 +59,41 @@ describe("/POST login", () => {
         res.body.should.have.property("message").eql("User not found. Please signup first");
       });
     done();
+  });
+
+  it("Should return error on empty username", (done) => {
+    chai.request(server)
+      .post("/api/authenticate")
+      .send({ username: "", password: "1234" })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.body.should.be.a("object");
+        res.body.should.have.property("error").eql("Invalid credentials");
+        done();
+      });
+  });
+
+  it("Should return error on empty request", (done) => {
+    chai.request(server)
+      .post("/api/authenticate")
+      .send({ username: "", password: "" })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.body.should.be.a("object");
+        res.body.should.have.property("error").eql("Invalid credentials");
+        done();
+      });
+  });
+
+  it("Should return error on empty password", (done) => {
+    chai.request(server)
+      .post("/api/authenticate")
+      .send({ username: "edwinMoses", password: "" })
+      .end((err, res) => {
+        res.should.have.status(400);
+        res.body.should.be.a("object");
+        res.body.should.have.property("error").eql("Invalid credentials");
+        done();
+      });
   });
 });
