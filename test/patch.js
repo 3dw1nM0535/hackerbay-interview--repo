@@ -41,6 +41,4 @@ describe("Patch JSON object", () => {
       });
     done();
   });
-
-
 });
